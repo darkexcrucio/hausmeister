@@ -3,7 +3,7 @@ name: Archive Slack Channels
 on:
   schedule:
     - cron: "0 0 * * *"  # Runs daily at midnight
-  workflow_dispatch:  # Allows manual execution of the workflow
+  workflow_dispatch:  # Allows manual execution
 
 jobs:
   run:
@@ -18,8 +18,8 @@ jobs:
       - env:
           HM_SLACK_BEARER_TOKEN: ${{ secrets.SLACK_BEARER_TOKEN }}
           HM_SLACK_SIGNING_SECRET: ${{ secrets.SLACK_SIGNING_SECRET }}
-          HM_CHANNEL_REGEX: "^temp-.*"  # Customize with your desired regex
-          HM_LAST_MESSAGE_MAX_AGE: "30d"  # Archive channels inactive for 30 days
-          HM_ARCHIVE_CHANNELS: "true"  # Set to "true" to archive, "false" for dry-run
-          HM_SEND_MESSAGE: "true"  # Send a message before archiving
-      run: node index.js
+          HM_CHANNEL_REGEX: "^temp-.*"
+          HM_LAST_MESSAGE_MAX_AGE: "30d"
+          HM_ARCHIVE_CHANNELS: "true"
+          HM_SEND_MESSAGE: "true"
+        run: node index.js
