@@ -18,7 +18,7 @@ jobs:
       - env:
           HM_SLACK_BEARER_TOKEN: ${{ secrets.SLACK_BEARER_TOKEN }}
           HM_SLACK_SIGNING_SECRET: ${{ secrets.SLACK_SIGNING_SECRET }}
-          HM_CHANNEL_REGEX: "^temp-.*"
+          HM_CHANNEL_REGEX: ".*"
           HM_LAST_MESSAGE_MAX_AGE: "30d"
           HM_ARCHIVE_CHANNELS: "true"
           HM_SEND_MESSAGE: "true"
